@@ -15,4 +15,6 @@ class PersonDAO:
             erros.append(MSG_NOME_PARTES)
         if not all(parte.isalpha() for parte in partes):
             erros.append(MSG_NOME_LETRAS)
+        if not isinstance(p.age, int) or not 1 <= p.age <= 200:
+            erros.append(MSG_IDADE)
         return erros
