@@ -1,4 +1,4 @@
-"""Calculadora de salário líquido (fase GREEN: DESENVOLVEDOR)."""
+"""Calculadora de salário líquido (fase GREEN: DESENVOLVEDOR, DBA)."""
 
 from decimal import ROUND_HALF_UP, Decimal
 
@@ -12,6 +12,11 @@ class CalculadoraSalario:
                 desconto = Decimal("0.20")
             else:
                 desconto = Decimal("0.10")
+        elif funcionario.cargo is Cargo.DBA:
+            if funcionario.salario_base >= Decimal("2000.00"):
+                desconto = Decimal("0.25")
+            else:
+                desconto = Decimal("0.15")
         else:
             raise NotImplementedError
         liquido = funcionario.salario_base * (1 - desconto)
