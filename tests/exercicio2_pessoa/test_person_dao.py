@@ -4,6 +4,7 @@ import pytest
 
 from exercicio2_pessoa.modelo import Email, Person
 from exercicio2_pessoa.person_dao import (
+    MSG_IDADE,
     MSG_NOME_LETRAS,
     MSG_NOME_PARTES,
     PersonDAO,
@@ -50,3 +51,17 @@ def test_nome_com_caractere_que_nao_e_letra_e_invalido(nome):
 def test_nome_de_uma_parte_e_com_numero_acumula_os_dois_erros():
     erros = PersonDAO().is_valid_to_include(pessoa_valida(name="Mar1a"))
     assert erros == [MSG_NOME_PARTES, MSG_NOME_LETRAS]
+
+
+# --- Regra 2: idade no intervalo [1, 200] -------------------------------------
+
+
+@pytest.mark.parametrize("idade", [1, 2, 30, 199, 200])
+def test_idade_dentro_do_intervalo_e_valida(idade):
+    assert PersonDAO().is_valid_to_include(pessoa_valida(age=idade)) == []
+
+
+@pytest.mark.parametrize("idade", [0, -1, 201, 1000, None])
+def test_idade_fora_do_intervalo_e_invalida(idade):
+    erros = PersonDAO().is_valid_to_include(pessoa_valida(age=idade))
+    assert erros == [MSG_IDADE]
