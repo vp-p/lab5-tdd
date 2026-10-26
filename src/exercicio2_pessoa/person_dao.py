@@ -8,4 +8,10 @@ MSG_NOME_LETRAS = "O nome deve ser composto apenas de letras"
 
 class PersonDAO:
     def is_valid_to_include(self, p: Person) -> list[str]:
-        return []
+        erros: list[str] = []
+        partes = (p.name or "").split()
+        if len(partes) < 2:
+            erros.append(MSG_NOME_PARTES)
+        if not all(parte.isalpha() for parte in partes):
+            erros.append(MSG_NOME_LETRAS)
+        return erros
