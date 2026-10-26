@@ -127,3 +127,9 @@ def test_todas_as_regras_violadas_acumulam_os_erros():
     pessoa = Person(1, "Maria", 0, [Email(1, "invalido")])
     erros = PersonDAO().is_valid_to_include(pessoa)
     assert erros == [MSG_NOME_PARTES, MSG_IDADE, msg_email_invalido("invalido")]
+
+
+def test_alias_com_o_nome_do_diagrama_de_classes():
+    dao = PersonDAO()
+    pessoa = pessoa_valida(age=0)
+    assert dao.isValidToInclude(pessoa) == dao.is_valid_to_include(pessoa) == [MSG_IDADE]
