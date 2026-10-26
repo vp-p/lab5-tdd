@@ -5,6 +5,7 @@ from exercicio2_pessoa.modelo import Person
 MSG_NOME_PARTES = "O nome deve ter ao menos 2 partes"
 MSG_NOME_LETRAS = "O nome deve ser composto apenas de letras"
 MSG_IDADE = "A idade deve estar entre 1 e 200"
+MSG_EMAIL_OBRIGATORIO = "A pessoa deve ter ao menos um e-mail"
 
 
 class PersonDAO:

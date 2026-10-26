@@ -4,6 +4,7 @@ import pytest
 
 from exercicio2_pessoa.modelo import Email, Person
 from exercicio2_pessoa.person_dao import (
+    MSG_EMAIL_OBRIGATORIO,
     MSG_IDADE,
     MSG_NOME_LETRAS,
     MSG_NOME_PARTES,
@@ -65,3 +66,17 @@ def test_idade_dentro_do_intervalo_e_valida(idade):
 def test_idade_fora_do_intervalo_e_invalida(idade):
     erros = PersonDAO().is_valid_to_include(pessoa_valida(age=idade))
     assert erros == [MSG_IDADE]
+
+
+# --- Regra 3: ao menos um Email associado -------------------------------------
+
+
+@pytest.mark.parametrize("emails", [[], None])
+def test_pessoa_sem_email_e_invalida(emails):
+    erros = PersonDAO().is_valid_to_include(pessoa_valida(emails=emails))
+    assert erros == [MSG_EMAIL_OBRIGATORIO]
+
+
+def test_pessoa_com_varios_emails_validos_e_valida():
+    emails = [Email(1, "maria@exemplo.com"), Email(2, "m.silva@empresa.org")]
+    assert PersonDAO().is_valid_to_include(pessoa_valida(emails=emails)) == []
