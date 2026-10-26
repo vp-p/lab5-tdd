@@ -133,3 +133,22 @@ def test_alias_com_o_nome_do_diagrama_de_classes():
     dao = PersonDAO()
     pessoa = pessoa_valida(age=0)
     assert dao.isValidToInclude(pessoa) == dao.is_valid_to_include(pessoa) == [MSG_IDADE]
+
+
+# --- save(p): void (presente no diagrama) -------------------------------------
+# Persistência em memória: só inclui pessoas válidas.
+
+
+def test_save_inclui_pessoa_valida():
+    dao = PersonDAO()
+    pessoa = pessoa_valida()
+    dao.save(pessoa)
+    assert dao.pessoas == [pessoa]
+
+
+def test_save_rejeita_pessoa_invalida_informando_os_erros():
+    dao = PersonDAO()
+    with pytest.raises(ValueError) as excecao:
+        dao.save(pessoa_valida(age=0))
+    assert MSG_IDADE in str(excecao.value)
+    assert dao.pessoas == []
