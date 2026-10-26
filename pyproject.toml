@@ -1,0 +1,14 @@
+[project]
+name = "tdd-exercicios"
+version = "1.0.0"
+description = "Exercicios de TDD com Python e pytest (Triangulo, PersonDAO, Calculadora de salario)"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.coverage.run]
+branch = true
+source = ["src"]
