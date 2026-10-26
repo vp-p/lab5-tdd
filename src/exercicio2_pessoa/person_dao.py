@@ -18,4 +18,6 @@ class PersonDAO:
             erros.append(MSG_NOME_LETRAS)
         if not isinstance(p.age, int) or not 1 <= p.age <= 200:
             erros.append(MSG_IDADE)
+        if not p.emails:
+            erros.append(MSG_EMAIL_OBRIGATORIO)
         return erros
