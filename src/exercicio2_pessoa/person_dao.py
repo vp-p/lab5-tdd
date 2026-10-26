@@ -8,6 +8,10 @@ MSG_IDADE = "A idade deve estar entre 1 e 200"
 MSG_EMAIL_OBRIGATORIO = "A pessoa deve ter ao menos um e-mail"
 
 
+def msg_email_invalido(endereco) -> str:
+    return f"E-mail inválido: {endereco}"
+
+
 class PersonDAO:
     def is_valid_to_include(self, p: Person) -> list[str]:
         erros: list[str] = []

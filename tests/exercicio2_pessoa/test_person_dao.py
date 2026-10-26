@@ -9,6 +9,7 @@ from exercicio2_pessoa.person_dao import (
     MSG_NOME_LETRAS,
     MSG_NOME_PARTES,
     PersonDAO,
+    msg_email_invalido,
 )
 
 
@@ -80,3 +81,49 @@ def test_pessoa_sem_email_e_invalida(emails):
 def test_pessoa_com_varios_emails_validos_e_valida():
     emails = [Email(1, "maria@exemplo.com"), Email(2, "m.silva@empresa.org")]
     assert PersonDAO().is_valid_to_include(pessoa_valida(emails=emails)) == []
+
+
+# --- Regra 4: e-mail no formato "_____@____._____" ----------------------------
+# Cada uma das três partes (antes do @, entre @ e ponto, depois do ponto)
+# precisa ter ao menos um caractere.
+
+
+@pytest.mark.parametrize(
+    "endereco", ["a@b.c", "maria@exemplo.com", "m.silva@empresa.org", "x_y-1@d.io"]
+)
+def test_email_no_formato_correto_e_valido(endereco):
+    pessoa = pessoa_valida(emails=[Email(1, endereco)])
+    assert PersonDAO().is_valid_to_include(pessoa) == []
+
+
+@pytest.mark.parametrize(
+    "endereco",
+    [
+        "",  # vazio
+        "semarroba.com",  # sem @
+        "a@b",  # sem ponto depois do @
+        "@b.c",  # parte antes do @ vazia
+        "a@.c",  # parte entre @ e ponto vazia
+        "a@b.",  # parte depois do ponto vazia
+        "a@@b.c",  # dois @
+        "a b@c.d",  # espaço
+        "a@b.c.d",  # mais de um ponto depois do @ (fora do formato)
+        None,  # sem endereço
+    ],
+)
+def test_email_fora_do_formato_e_invalido(endereco):
+    pessoa = pessoa_valida(emails=[Email(1, endereco)])
+    erros = PersonDAO().is_valid_to_include(pessoa)
+    assert erros == [msg_email_invalido(endereco)]
+
+
+def test_um_erro_por_email_invalido_mantendo_os_validos():
+    emails = [Email(1, "ok@exemplo.com"), Email(2, "ruim"), Email(3, "pior@")]
+    erros = PersonDAO().is_valid_to_include(pessoa_valida(emails=emails))
+    assert erros == [msg_email_invalido("ruim"), msg_email_invalido("pior@")]
+
+
+def test_todas_as_regras_violadas_acumulam_os_erros():
+    pessoa = Person(1, "Maria", 0, [Email(1, "invalido")])
+    erros = PersonDAO().is_valid_to_include(pessoa)
+    assert erros == [MSG_NOME_PARTES, MSG_IDADE, msg_email_invalido("invalido")]
