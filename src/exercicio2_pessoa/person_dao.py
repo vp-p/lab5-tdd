@@ -31,6 +31,20 @@ def msg_email_invalido(endereco) -> str:
 
 
 class PersonDAO:
+    def __init__(self) -> None:
+        self._pessoas: list[Person] = []
+
+    @property
+    def pessoas(self) -> list[Person]:
+        return list(self._pessoas)
+
+    def save(self, p: Person) -> None:
+        """Inclui `p` (em memória). Levanta ValueError se não for válida."""
+        erros = self.is_valid_to_include(p)
+        if erros:
+            raise ValueError("; ".join(erros))
+        self._pessoas.append(p)
+
     def is_valid_to_include(self, p: Person) -> list[str]:
         """Retorna os erros que impedem a inclusão de `p` (vazia se válida)."""
         return [
