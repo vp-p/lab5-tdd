@@ -1,0 +1,47 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.17, pytest-9.1.1, pluggy-1.7.0 -- /tmp/venv-teste/bin/python3
+rootdir: /home/claude/tdd-exercicios
+configfile: pyproject.toml
+plugins: cov-7.1.0
+collecting ... collected 28 items
+
+tests/exercicio1_triangulo/test_triangulo.py::test_escaleno_valido PASSED [  3%]
+tests/exercicio1_triangulo/test_triangulo.py::test_equilatero_valido PASSED [  7%]
+tests/exercicio1_triangulo/test_triangulo.py::test_isosceles_valido PASSED [ 10%]
+tests/exercicio1_triangulo/test_triangulo.py::test_isosceles_valido_permutacoes[2-2-3] PASSED [ 14%]
+tests/exercicio1_triangulo/test_triangulo.py::test_isosceles_valido_permutacoes[2-3-2] PASSED [ 17%]
+tests/exercicio1_triangulo/test_triangulo.py::test_isosceles_valido_permutacoes[3-2-2] PASSED [ 21%]
+tests/exercicio1_triangulo/test_triangulo.py::test_um_valor_zero[0-4-5] PASSED [ 25%]
+tests/exercicio1_triangulo/test_triangulo.py::test_um_valor_zero[4-0-5] PASSED [ 28%]
+tests/exercicio1_triangulo/test_triangulo.py::test_um_valor_zero[4-5-0] PASSED [ 32%]
+tests/exercicio1_triangulo/test_triangulo.py::test_um_valor_negativo[-3-4-5] PASSED [ 35%]
+tests/exercicio1_triangulo/test_triangulo.py::test_um_valor_negativo[3--4-5] PASSED [ 39%]
+tests/exercicio1_triangulo/test_triangulo.py::test_um_valor_negativo[3-4--5] PASSED [ 42%]
+tests/exercicio1_triangulo/test_triangulo.py::test_tres_valores_zero PASSED [ 46%]
+tests/exercicio1_triangulo/test_triangulo.py::test_soma_de_dois_lados_igual_ao_terceiro[1-2-3] PASSED [ 50%]
+tests/exercicio1_triangulo/test_triangulo.py::test_soma_de_dois_lados_igual_ao_terceiro[1-3-2] PASSED [ 53%]
+tests/exercicio1_triangulo/test_triangulo.py::test_soma_de_dois_lados_igual_ao_terceiro[2-1-3] PASSED [ 57%]
+tests/exercicio1_triangulo/test_triangulo.py::test_soma_de_dois_lados_igual_ao_terceiro[2-3-1] PASSED [ 60%]
+tests/exercicio1_triangulo/test_triangulo.py::test_soma_de_dois_lados_igual_ao_terceiro[3-1-2] PASSED [ 64%]
+tests/exercicio1_triangulo/test_triangulo.py::test_soma_de_dois_lados_igual_ao_terceiro[3-2-1] PASSED [ 67%]
+tests/exercicio1_triangulo/test_triangulo.py::test_soma_de_dois_lados_menor_que_o_terceiro[1-2-4] PASSED [ 71%]
+tests/exercicio1_triangulo/test_triangulo.py::test_soma_de_dois_lados_menor_que_o_terceiro[1-4-2] PASSED [ 75%]
+tests/exercicio1_triangulo/test_triangulo.py::test_soma_de_dois_lados_menor_que_o_terceiro[2-1-4] PASSED [ 78%]
+tests/exercicio1_triangulo/test_triangulo.py::test_soma_de_dois_lados_menor_que_o_terceiro[2-4-1] PASSED [ 82%]
+tests/exercicio1_triangulo/test_triangulo.py::test_soma_de_dois_lados_menor_que_o_terceiro[4-1-2] PASSED [ 85%]
+tests/exercicio1_triangulo/test_triangulo.py::test_soma_de_dois_lados_menor_que_o_terceiro[4-2-1] PASSED [ 89%]
+tests/exercicio1_triangulo/test_triangulo.py::test_isosceles_degenerado_nao_e_triangulo[2-2-4] PASSED [ 92%]
+tests/exercicio1_triangulo/test_triangulo.py::test_isosceles_degenerado_nao_e_triangulo[2-4-2] PASSED [ 96%]
+tests/exercicio1_triangulo/test_triangulo.py::test_isosceles_degenerado_nao_e_triangulo[4-2-2] PASSED [100%]
+
+================================ tests coverage ================================
+_______________ coverage: platform linux, python 3.13.17-final-0 _______________
+
+Name                                    Stmts   Miss Branch BrPart  Cover   Missing
+-----------------------------------------------------------------------------------
+src/exercicio1_triangulo/__init__.py        0      0      0      0   100%
+src/exercicio1_triangulo/triangulo.py      21      0      6      0   100%
+-----------------------------------------------------------------------------------
+TOTAL                                      21      0      6      0   100%
+Coverage HTML written to dir docs/cobertura/exercicio1_html
+============================== 28 passed in 0.13s ==============================

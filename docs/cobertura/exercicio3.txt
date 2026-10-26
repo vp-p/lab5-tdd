@@ -1,0 +1,46 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.17, pytest-9.1.1, pluggy-1.7.0 -- /tmp/venv-teste/bin/python3
+rootdir: /home/claude/tdd-exercicios
+configfile: pyproject.toml
+plugins: cov-7.1.0
+collecting ... collected 26 items
+
+tests/exercicio3_salario/test_calculadora_salario.py::test_desenvolvedor[1000.00-900.00] PASSED [  3%]
+tests/exercicio3_salario/test_calculadora_salario.py::test_desenvolvedor[2999.99-2699.99] PASSED [  7%]
+tests/exercicio3_salario/test_calculadora_salario.py::test_desenvolvedor[3000.00-2400.00] PASSED [ 11%]
+tests/exercicio3_salario/test_calculadora_salario.py::test_desenvolvedor[3000.01-2400.01] PASSED [ 15%]
+tests/exercicio3_salario/test_calculadora_salario.py::test_desenvolvedor[5000.00-4000.00] PASSED [ 19%]
+tests/exercicio3_salario/test_calculadora_salario.py::test_dba[1000.00-850.00] PASSED [ 23%]
+tests/exercicio3_salario/test_calculadora_salario.py::test_dba[1999.99-1699.99] PASSED [ 26%]
+tests/exercicio3_salario/test_calculadora_salario.py::test_dba[2000.00-1500.00] PASSED [ 30%]
+tests/exercicio3_salario/test_calculadora_salario.py::test_dba[2000.01-1500.01] PASSED [ 34%]
+tests/exercicio3_salario/test_calculadora_salario.py::test_dba[4000.00-3000.00] PASSED [ 38%]
+tests/exercicio3_salario/test_calculadora_salario.py::test_testador[1000.00-850.00] PASSED [ 42%]
+tests/exercicio3_salario/test_calculadora_salario.py::test_testador[1999.99-1699.99] PASSED [ 46%]
+tests/exercicio3_salario/test_calculadora_salario.py::test_testador[2000.00-1500.00] PASSED [ 50%]
+tests/exercicio3_salario/test_calculadora_salario.py::test_testador[2000.01-1500.01] PASSED [ 53%]
+tests/exercicio3_salario/test_calculadora_salario.py::test_testador[4000.00-3000.00] PASSED [ 57%]
+tests/exercicio3_salario/test_calculadora_salario.py::test_gerente[1000.00-800.00] PASSED [ 61%]
+tests/exercicio3_salario/test_calculadora_salario.py::test_gerente[4999.99-3999.99] PASSED [ 65%]
+tests/exercicio3_salario/test_calculadora_salario.py::test_gerente[5000.00-3500.00] PASSED [ 69%]
+tests/exercicio3_salario/test_calculadora_salario.py::test_gerente[5000.01-3500.01] PASSED [ 73%]
+tests/exercicio3_salario/test_calculadora_salario.py::test_gerente[10000.00-7000.00] PASSED [ 76%]
+tests/exercicio3_salario/test_calculadora_salario.py::test_resultado_e_arredondado_em_centavos_com_meio_para_cima PASSED [ 80%]
+tests/exercicio3_salario/test_calculadora_salario.py::test_resultado_tem_duas_casas_decimais PASSED [ 84%]
+tests/exercicio3_salario/test_calculadora_salario.py::test_todo_cargo_possui_regra_de_desconto[Cargo.DESENVOLVEDOR] PASSED [ 88%]
+tests/exercicio3_salario/test_calculadora_salario.py::test_todo_cargo_possui_regra_de_desconto[Cargo.DBA] PASSED [ 92%]
+tests/exercicio3_salario/test_calculadora_salario.py::test_todo_cargo_possui_regra_de_desconto[Cargo.TESTADOR] PASSED [ 96%]
+tests/exercicio3_salario/test_calculadora_salario.py::test_todo_cargo_possui_regra_de_desconto[Cargo.GERENTE] PASSED [100%]
+
+================================ tests coverage ================================
+_______________ coverage: platform linux, python 3.13.17-final-0 _______________
+
+Name                                            Stmts   Miss Branch BrPart  Cover   Missing
+-------------------------------------------------------------------------------------------
+src/exercicio3_salario/__init__.py                  0      0      0      0   100%
+src/exercicio3_salario/calculadora_salario.py      20      0      2      0   100%
+src/exercicio3_salario/funcionario.py              14      0      0      0   100%
+-------------------------------------------------------------------------------------------
+TOTAL                                              34      0      2      0   100%
+Coverage HTML written to dir docs/cobertura/exercicio3_html
+============================== 26 passed in 0.13s ==============================

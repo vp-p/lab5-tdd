@@ -1,0 +1,66 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.17, pytest-9.1.1, pluggy-1.7.0 -- /tmp/venv-teste/bin/python3
+rootdir: /home/claude/tdd-exercicios
+configfile: pyproject.toml
+plugins: cov-7.1.0
+collecting ... collected 46 items
+
+tests/exercicio2_pessoa/test_person_dao.py::test_pessoa_valida_nao_retorna_erros PASSED [  2%]
+tests/exercicio2_pessoa/test_person_dao.py::test_nome_com_duas_ou_mais_partes_de_letras_e_valido[Maria Silva] PASSED [  4%]
+tests/exercicio2_pessoa/test_person_dao.py::test_nome_com_duas_ou_mais_partes_de_letras_e_valido[Maria da Silva] PASSED [  6%]
+tests/exercicio2_pessoa/test_person_dao.py::test_nome_com_duas_ou_mais_partes_de_letras_e_valido[Jos\xe9 \xc2ngelo] PASSED [  8%]
+tests/exercicio2_pessoa/test_person_dao.py::test_nome_com_duas_ou_mais_partes_de_letras_e_valido[Ana  Maria] PASSED [ 10%]
+tests/exercicio2_pessoa/test_person_dao.py::test_nome_com_menos_de_duas_partes_e_invalido[Maria] PASSED [ 13%]
+tests/exercicio2_pessoa/test_person_dao.py::test_nome_com_menos_de_duas_partes_e_invalido[] PASSED [ 15%]
+tests/exercicio2_pessoa/test_person_dao.py::test_nome_com_menos_de_duas_partes_e_invalido[   ] PASSED [ 17%]
+tests/exercicio2_pessoa/test_person_dao.py::test_nome_com_menos_de_duas_partes_e_invalido[None] PASSED [ 19%]
+tests/exercicio2_pessoa/test_person_dao.py::test_nome_com_caractere_que_nao_e_letra_e_invalido[Maria S1lva] PASSED [ 21%]
+tests/exercicio2_pessoa/test_person_dao.py::test_nome_com_caractere_que_nao_e_letra_e_invalido[Maria Silva3] PASSED [ 23%]
+tests/exercicio2_pessoa/test_person_dao.py::test_nome_com_caractere_que_nao_e_letra_e_invalido[Maria Silva!] PASSED [ 26%]
+tests/exercicio2_pessoa/test_person_dao.py::test_nome_com_caractere_que_nao_e_letra_e_invalido[M@ria Silva] PASSED [ 28%]
+tests/exercicio2_pessoa/test_person_dao.py::test_nome_de_uma_parte_e_com_numero_acumula_os_dois_erros PASSED [ 30%]
+tests/exercicio2_pessoa/test_person_dao.py::test_idade_dentro_do_intervalo_e_valida[1] PASSED [ 32%]
+tests/exercicio2_pessoa/test_person_dao.py::test_idade_dentro_do_intervalo_e_valida[2] PASSED [ 34%]
+tests/exercicio2_pessoa/test_person_dao.py::test_idade_dentro_do_intervalo_e_valida[30] PASSED [ 36%]
+tests/exercicio2_pessoa/test_person_dao.py::test_idade_dentro_do_intervalo_e_valida[199] PASSED [ 39%]
+tests/exercicio2_pessoa/test_person_dao.py::test_idade_dentro_do_intervalo_e_valida[200] PASSED [ 41%]
+tests/exercicio2_pessoa/test_person_dao.py::test_idade_fora_do_intervalo_e_invalida[0] PASSED [ 43%]
+tests/exercicio2_pessoa/test_person_dao.py::test_idade_fora_do_intervalo_e_invalida[-1] PASSED [ 45%]
+tests/exercicio2_pessoa/test_person_dao.py::test_idade_fora_do_intervalo_e_invalida[201] PASSED [ 47%]
+tests/exercicio2_pessoa/test_person_dao.py::test_idade_fora_do_intervalo_e_invalida[1000] PASSED [ 50%]
+tests/exercicio2_pessoa/test_person_dao.py::test_idade_fora_do_intervalo_e_invalida[None] PASSED [ 52%]
+tests/exercicio2_pessoa/test_person_dao.py::test_pessoa_sem_email_e_invalida[emails0] PASSED [ 54%]
+tests/exercicio2_pessoa/test_person_dao.py::test_pessoa_sem_email_e_invalida[None] PASSED [ 56%]
+tests/exercicio2_pessoa/test_person_dao.py::test_pessoa_com_varios_emails_validos_e_valida PASSED [ 58%]
+tests/exercicio2_pessoa/test_person_dao.py::test_email_no_formato_correto_e_valido[a@b.c] PASSED [ 60%]
+tests/exercicio2_pessoa/test_person_dao.py::test_email_no_formato_correto_e_valido[maria@exemplo.com] PASSED [ 63%]
+tests/exercicio2_pessoa/test_person_dao.py::test_email_no_formato_correto_e_valido[m.silva@empresa.org] PASSED [ 65%]
+tests/exercicio2_pessoa/test_person_dao.py::test_email_no_formato_correto_e_valido[x_y-1@d.io] PASSED [ 67%]
+tests/exercicio2_pessoa/test_person_dao.py::test_email_fora_do_formato_e_invalido[] PASSED [ 69%]
+tests/exercicio2_pessoa/test_person_dao.py::test_email_fora_do_formato_e_invalido[semarroba.com] PASSED [ 71%]
+tests/exercicio2_pessoa/test_person_dao.py::test_email_fora_do_formato_e_invalido[a@b] PASSED [ 73%]
+tests/exercicio2_pessoa/test_person_dao.py::test_email_fora_do_formato_e_invalido[@b.c] PASSED [ 76%]
+tests/exercicio2_pessoa/test_person_dao.py::test_email_fora_do_formato_e_invalido[a@.c] PASSED [ 78%]
+tests/exercicio2_pessoa/test_person_dao.py::test_email_fora_do_formato_e_invalido[a@b.] PASSED [ 80%]
+tests/exercicio2_pessoa/test_person_dao.py::test_email_fora_do_formato_e_invalido[a@@b.c] PASSED [ 82%]
+tests/exercicio2_pessoa/test_person_dao.py::test_email_fora_do_formato_e_invalido[a b@c.d] PASSED [ 84%]
+tests/exercicio2_pessoa/test_person_dao.py::test_email_fora_do_formato_e_invalido[a@b.c.d] PASSED [ 86%]
+tests/exercicio2_pessoa/test_person_dao.py::test_email_fora_do_formato_e_invalido[None] PASSED [ 89%]
+tests/exercicio2_pessoa/test_person_dao.py::test_um_erro_por_email_invalido_mantendo_os_validos PASSED [ 91%]
+tests/exercicio2_pessoa/test_person_dao.py::test_todas_as_regras_violadas_acumulam_os_erros PASSED [ 93%]
+tests/exercicio2_pessoa/test_person_dao.py::test_alias_com_o_nome_do_diagrama_de_classes PASSED [ 95%]
+tests/exercicio2_pessoa/test_person_dao.py::test_save_inclui_pessoa_valida PASSED [ 97%]
+tests/exercicio2_pessoa/test_person_dao.py::test_save_rejeita_pessoa_invalida_informando_os_erros PASSED [100%]
+
+================================ tests coverage ================================
+_______________ coverage: platform linux, python 3.13.17-final-0 _______________
+
+Name                                  Stmts   Miss Branch BrPart  Cover   Missing
+---------------------------------------------------------------------------------
+src/exercicio2_pessoa/__init__.py         0      0      0      0   100%
+src/exercicio2_pessoa/modelo.py          11      0      0      0   100%
+src/exercicio2_pessoa/person_dao.py      46      0      8      0   100%
+---------------------------------------------------------------------------------
+TOTAL                                    57      0      8      0   100%
+Coverage HTML written to dir docs/cobertura/exercicio2_html
+============================== 46 passed in 0.16s ==============================
