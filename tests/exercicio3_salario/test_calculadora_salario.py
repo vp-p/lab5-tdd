@@ -72,3 +72,20 @@ def test_dba(salario_base, esperado):
 )
 def test_testador(salario_base, esperado):
     assert liquido(Cargo.TESTADOR, salario_base) == Decimal(esperado)
+
+
+# --- GERENTE: 30% se salário >= 5.000,00; senão 20% ----------------------------
+
+
+@pytest.mark.parametrize(
+    "salario_base, esperado",
+    [
+        ("1000.00", "800.00"),  # abaixo do limite -> 20%
+        ("4999.99", "3999.99"),  # logo abaixo do limite -> 20%
+        ("5000.00", "3500.00"),  # exatamente no limite -> 30%
+        ("5000.01", "3500.01"),  # logo acima do limite -> 30%
+        ("10000.00", "7000.00"),  # acima do limite -> 30%
+    ],
+)
+def test_gerente(salario_base, esperado):
+    assert liquido(Cargo.GERENTE, salario_base) == Decimal(esperado)
