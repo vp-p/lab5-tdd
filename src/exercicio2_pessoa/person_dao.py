@@ -1,5 +1,7 @@
 """PersonDAO."""
 
+import re
+
 from exercicio2_pessoa.modelo import Person
 
 MSG_NOME_PARTES = "O nome deve ter ao menos 2 partes"
@@ -24,4 +26,9 @@ class PersonDAO:
             erros.append(MSG_IDADE)
         if not p.emails:
             erros.append(MSG_EMAIL_OBRIGATORIO)
+        for email in p.emails or []:
+            if not isinstance(email.name, str) or not re.fullmatch(
+                r"[^@\s]+@[^@\s.]+\.[^@\s.]+", email.name
+            ):
+                erros.append(msg_email_invalido(email.name))
         return erros
