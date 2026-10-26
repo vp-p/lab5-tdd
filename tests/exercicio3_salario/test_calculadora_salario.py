@@ -89,3 +89,20 @@ def test_testador(salario_base, esperado):
 )
 def test_gerente(salario_base, esperado):
     assert liquido(Cargo.GERENTE, salario_base) == Decimal(esperado)
+
+
+# --- Arredondamento e demais propriedades ------------------------------------
+
+
+def test_resultado_e_arredondado_em_centavos_com_meio_para_cima():
+    # 1000.05 * 0.90 = 900.045 -> 900.05 (ROUND_HALF_UP; half-even daria 900.04)
+    assert liquido(Cargo.DESENVOLVEDOR, "1000.05") == Decimal("900.05")
+
+
+def test_resultado_tem_duas_casas_decimais():
+    assert liquido(Cargo.DESENVOLVEDOR, "3333.33") == Decimal("2666.66")
+
+
+@pytest.mark.parametrize("cargo", list(Cargo))
+def test_todo_cargo_possui_regra_de_desconto(cargo):
+    assert liquido(cargo, "1000.00") < Decimal("1000.00")
